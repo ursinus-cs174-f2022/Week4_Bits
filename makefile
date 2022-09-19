@@ -1,7 +1,10 @@
 CC=g++
 CFLAGS=-std=c++11 -g -Wall 
 
-all: num2binary mynum2binary binary2num mybinary2num encrypt
+all: num2binary mynum2binary binary2num mybinary2num encrypt hex
+
+hex: hex.cpp
+	$(CC) $(CFLAGS) -o hex hex.cpp
 
 num2binary: num2binary.cpp
 	$(CC) $(CFLAGS) -o num2binary num2binary.cpp
@@ -22,4 +25,4 @@ encrypt: encrypt.cpp fileutils.o
 	$(CC) $(CFLAGS) -o encrypt fileutils.o encrypt.cpp
 
 clean:
-	rm num2binary mynum2binary binary2num mybinary2num encrypt fileutils.o
+	rm hex num2binary mynum2binary binary2num mybinary2num encrypt fileutils.o
